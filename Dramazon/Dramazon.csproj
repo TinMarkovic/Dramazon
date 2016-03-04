@@ -1178,6 +1178,7 @@
     <Content Include="Scripts\node_modules\rxjs\util\tryCatch.js" />
     <Content Include="Scripts\node_modules\rxjs\util\tryOrOnError.js" />
     <Content Include="Scripts\node_modules\systemjs\system.src.js" />
+    <Content Include="Scripts\node_modules\Readme.txt" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\system.js" />
