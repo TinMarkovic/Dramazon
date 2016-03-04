@@ -1,0 +1,97 @@
+﻿@font-face {
+    font-family: 'Open Sans';
+	src: url(../fonts/OpenSans/Regular/OpenSans-Regular.ttf);
+}
+
+body {
+    font-family: "Open Sans";
+}
+
+.done {
+    text-decoration:line-through;
+    color: green;
+}
+
+.not-done {
+    color: red;
+}
+
+.footer > .container {
+    text-align: center;
+    padding-top:1rem;
+}
+
+#central-container {
+    text-align:center;
+    margin-top: 20px;
+}
+
+.todo-input-group .glyphicon {
+    top: 0;
+}
+
+.todo-input-group #status-input{
+    height: 47px;
+}
+
+.todo-input-group {
+    margin: 2px;
+}
+
+#central-container {
+    width: 600px;
+}
+
+#todo-app .list-group-item {
+    text-align:left;
+}
+
+#todo-app .list-group {
+    margin-top: 1rem;
+}
+
+#todo-app .todo-checkbox {
+    margin-right: 1rem;
+}
+
+#todo-app .remove-todo {
+    cursor: pointer;
+    color: red;
+    position: absolute;
+    right: 1rem;
+    top: 1rem;
+    visibility:collapse;
+}
+
+#todo-app .list-group-item:hover .remove-todo{
+    visibility:visible;
+}
+
+#todo-app .status-container {
+    text-align: left;
+}
+
+#todo-app button .glyphicon {
+    margin-right:0.5rem;
+}
+
+#todo-app .todo-toolbar {
+    padding: 1rem;
+    text-align:left;
+    margin-bottom: 0;
+}
+
+#todo-app .done-select {
+    display: inline-block;
+    width:120px;
+    margin-top: -2px;
+}
+
+#todo-app .todo-search {
+    display: inline-block;
+    width:390px;
+}
+
+.progress-bar.complete {
+    background-color: green;
+}

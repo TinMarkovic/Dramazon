@@ -1,0 +1,6 @@
+namespace Dramazon.Areas.HelpPage.ModelDescriptions
+{
+    public class SimpleTypeModelDescription : ModelDescription
+    {
+    }
+}
