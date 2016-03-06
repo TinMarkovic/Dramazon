@@ -95,3 +95,7 @@ body {
 .progress-bar.complete {
     background-color: green;
 }
+
+.small-margin-top {
+    margin-top:7px;
+}
