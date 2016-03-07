@@ -10,6 +10,14 @@
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
+
+    <script>
+    System.defaultJSExtensions = true;
+    System.config({
+        baseURL: '/Scripts/node_modules/'
+    });
+    System.import("/Scripts/App/signup");
+    </script>
 </head>
 <body>
     <div class="navbar navbar-inverse navbar-fixed-top">
@@ -50,11 +58,15 @@
             <div class="col-lg-4 small-margin-top">  <!-- Login -->
                 <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Login now! <span class="caret"></span></button>
                 <ul class="dropdown-menu">
-                    <li><a href="#">Action</a></li>
+                    <li>
+                        <button class="btn btn-primary btn-sm center-block" href="#signup" data-toggle="modal" data-target=".bs-modal-sm">Sign In/Register</button>
+                    </li>
+                    <li role="separator" class="divider"></li>
                     <li><a href="#">Another action</a></li>
                     <li><a href="#">Something else here</a></li>
                     <li role="separator" class="divider"></li>
                     <li><a href="#">Separated link</a></li>
+                    </ul>
             </div>
 
             <div class="col-lg-4 small-margin-top"> <!-- Cart -->
@@ -65,11 +77,13 @@
                     <li><a href="#">Something else here</a></li>
                     <li role="separator" class="divider"></li>
                     <li><a href="#">Separated link</a></li>
+                    </ul>
             </div>
         </div>
-
     </div>
 
+    <!-- Modal -->
+    <signup-app></signup-app>
 
     <div class="container body-content">
         @RenderBody()

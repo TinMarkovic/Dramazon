@@ -14,7 +14,7 @@ namespace Dramazon
     {
         protected void Application_Start()
         {
-            Database.SetInitializer(new DAL.TodoInitializer());
+            Database.SetInitializer(new DAL.DramazonInitializer());
 
             AreaRegistration.RegisterAllAreas();
             GlobalConfiguration.Configure(WebApiConfig.Register);
