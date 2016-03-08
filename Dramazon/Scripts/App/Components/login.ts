@@ -17,7 +17,7 @@ import {ROUTER_PROVIDERS} from 'angular2/router';
                             <div class="control-group">
                                 <label class="control-label" for="userid">Alias:</label>
                                 <div class="controls">
-                                    <input required="" id="userid" name="userid" type="text" class="form-control" placeholder="JoeSixpack" class="input-medium" required="">
+                                    <input ngControl="alias" required="" id="userid" name="userid" type="text" class="form-control" placeholder="JoeSixpack" class="input-medium" required="">
                                 </div>
                             </div>
 
@@ -25,7 +25,7 @@ import {ROUTER_PROVIDERS} from 'angular2/router';
                             <div class="control-group">
                                 <label class="control-label" for="passwordinput">Password:</label>
                                 <div class="controls">
-                                    <input required="" id="passwordinput" name="passwordinput" class="form-control" type="password" placeholder="********" class="input-medium">
+                                    <input ngControl="password" required="" id="passwordinput" name="passwordinput" class="form-control" type="password" placeholder="********" class="input-medium">
                                 </div>
                             </div>
 

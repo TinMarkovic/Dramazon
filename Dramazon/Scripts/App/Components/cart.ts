@@ -9,7 +9,7 @@ import {ROUTER_PROVIDERS} from 'angular2/router';
     providers: [],
     directives: [],
     template: ` 
-              
+              <button type="button" class="btn btn-default"> Your cart <span class="glyphicon glyphicon-shopping-cart"></span> </button>
               `
 })
 

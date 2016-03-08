@@ -4,6 +4,7 @@ import {bootstrap} from "angular2/platform/browser";
 import {SignUpComponent} from "./Components/signup";
 import {SearchBarComponent} from "./Components/searchBar";
 import {CartComponent} from "./Components/cart";
+import {UserDropdownComponent} from "./Components/userdropdown";
 
 import {Http, HTTP_PROVIDERS} from 'angular2/http';
 import {ROUTER_PROVIDERS} from 'angular2/router';
@@ -11,7 +12,7 @@ import {ROUTER_PROVIDERS} from 'angular2/router';
 @Component({
     selector: "main-app",
     providers: [],
-    directives: [SignUpComponent, SearchBarComponent, CartComponent],
+    directives: [SignUpComponent, SearchBarComponent, CartComponent, UserDropdownComponent],
     template: ` 
                 <div class="navbar navbar-inverse navbar-fixed-top">
                 <!-- Empty space left -->
@@ -32,29 +33,12 @@ import {ROUTER_PROVIDERS} from 'angular2/router';
                 <div class="col-lg-4">
                     <div class="col-lg-4 small-margin-top">
                         <!-- Login -->
-                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Login now! <span class="caret"></span></button>
-                        <ul class="dropdown-menu">
-                            <li>
-                                <button class="btn btn-primary btn-sm center-block" href="#signup" data-toggle="modal" data-target=".bs-modal-sm">Sign In/Register</button>
-                            </li>
-                            <li role="separator" class="divider"></li>
-                            <li><a href="#">Another action</a></li>
-                            <li><a href="#">Something else here</a></li>
-                            <li role="separator" class="divider"></li>
-                            <li><a href="#">Separated link</a></li>
-                        </ul>
+                        <user-dropdown></user-dropdown>
                     </div>
 
                     <div class="col-lg-4 small-margin-top">
                         <!-- Cart -->
-                        <button type="button" class="btn btn-default"> Your cart <span class="glyphicon glyphicon-shopping-cart"></span> </button>
-                        <ul class="dropdown-menu">
-                            <li><a href="#">Action</a></li>
-                            <li><a href="#">Another action</a></li>
-                            <li><a href="#">Something else here</a></li>
-                            <li role="separator" class="divider"></li>
-                            <li><a href="#">Separated link</a></li>
-                        </ul>
+                        <cart-component></cart-component>
                     </div>
                 </div>
             </div>
