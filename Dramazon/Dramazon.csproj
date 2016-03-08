@@ -1210,6 +1210,9 @@
   <ItemGroup>
     <TypeScriptCompile Include="Scripts\App\app.ts" />
     <TypeScriptCompile Include="Scripts\App\Components\cart.ts" />
+    <TypeScriptCompile Include="Scripts\App\Components\login.ts" />
+    <TypeScriptCompile Include="Scripts\App\Components\register.ts" />
+    <TypeScriptCompile Include="Scripts\App\Components\userdropdown.ts" />
     <TypeScriptCompile Include="Scripts\App\main.ts" />
     <TypeScriptCompile Include="Scripts\App\Components\searchBar.ts" />
     <TypeScriptCompile Include="Scripts\App\Components\signup.ts" />
@@ -1219,6 +1222,7 @@
     <TypeScriptCompile Include="Scripts\App\Components\TodoProgress.ts" />
     <TypeScriptCompile Include="Scripts\App\Enums\DisplayOptions.ts" />
     <TypeScriptCompile Include="Scripts\App\Model\TodoItem.ts" />
+    <TypeScriptCompile Include="Scripts\App\Model\UserLogin.ts" />
     <TypeScriptCompile Include="Scripts\App\Pipes\ContainsPipe.ts" />
     <TypeScriptCompile Include="Scripts\App\Services\TodoService.ts" />
     <TypeScriptCompile Include="Scripts\node_modules\angular2\animate.d.ts" />

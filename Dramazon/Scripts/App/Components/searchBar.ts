@@ -34,5 +34,3 @@ import {ROUTER_PROVIDERS} from 'angular2/router';
 export class SearchBarComponent {
 
 }
-
-bootstrap(SearchBarComponent, [ROUTER_PROVIDERS, HTTP_PROVIDERS]);
