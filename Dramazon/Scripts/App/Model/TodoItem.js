@@ -1,3 +1,4 @@
+"use strict";
 var TodoItem = (function () {
     function TodoItem(message, done, ID) {
         if (done === void 0) { done = false; }
@@ -10,6 +11,6 @@ var TodoItem = (function () {
         return this.done ? "done" : "not-done";
     };
     return TodoItem;
-})();
+}());
 exports.TodoItem = TodoItem;
 //# sourceMappingURL=TodoItem.js.map
