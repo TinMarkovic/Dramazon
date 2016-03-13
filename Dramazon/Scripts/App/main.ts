@@ -46,9 +46,11 @@ import {ROUTER_PROVIDERS} from 'angular2/router';
             <!-- Modal -->
             <signup-component></signup-component>
 
-            <!-- IN CONSTRUCTION | issue: slike se ne prikazuju dan ih -->
+           
             <div class="container">
-                <img class="main-image" src="./images/image.jpg">
+               <!-- <img class="main-image" src="/Content/Image/image.jpg"> -->
+             <!-- IN CONSTRUCTION | issue: slike se ne prikazuju dan ih  Ova slika je na hlađenju jer je naporna -->
+
                 <div class="col-lg-3 temp-css mainpage-boxpadd">
                     <div class="mainpage-box">
                         <h3 class="centerBlock">Welcome</h3>
@@ -63,19 +65,19 @@ import {ROUTER_PROVIDERS} from 'angular2/router';
                         <h3 class="mainbox-header">Popular departments</h3>
                         <br>
                         <div class="col-lg-6 minibox-container">
-                            <img src="./images/1.png" class="img-circle" style="width: 100%;">
+                            <img src="/Content/Image/1.png" class="img-circle" style="width: 100%;">
                             <h6>Kindle</h6>
                         </div>
                         <div class="col-lg-6 minibox-container">
-                            <img src="./images/2.png" class="img-circle" style="width: 100%;">
+                            <img src="/Content/Image/2.png" class="img-circle" style="width: 100%;">
                             <h6>Amazon video</h6>
                         </div>
                         <div class="col-lg-6 minibox-container">
-                            <img src="./images/3.png" class="img-circle" style="width: 100%;">
+                            <img src="/Content/Image/3.png" class="img-circle" style="width: 100%;">
                             <h6>Music</h6>
                         </div>
                         <div class="col-lg-6 minibox-container">
-                            <img src="./images/4.png" class="img-circle" style="width: 100%;">
+                            <img src="/Content/Image/4.png" class="img-circle" style="width: 100%;">
                             <h6>Kindle</h6>
                         </div>
                     </div>
@@ -84,7 +86,7 @@ import {ROUTER_PROVIDERS} from 'angular2/router';
                     <div class="mainpage-box">
                         <h3 class="mainbox-header">The dress shop</h3>
                         <br>
-                        <img src="./images/5.png" style="width: 210px; display: block; margin: 0 auto;">
+                        <img src="/Content/Image/5.png" style="width: 210px; display: block; margin: 0 auto;">
                     </div>
                 </div>
                 <div class="col-lg-3 temp-css mainpage-boxpadd">
@@ -94,12 +96,12 @@ import {ROUTER_PROVIDERS} from 'angular2/router';
                         <div class="minibox-container">
                             <h2>$214.99</h2>
                             <h6>List <s>$269.99</s> (20% off)</h6>
-                            <img src="./images/6.jpg" style="width: 100px;">
+                            <img src="/Content/Image/6.jpg" style="width: 100px;">
                         </div>
                     </div>
                 </div>
             </div>
-            <!-- IN CONSTRUCTION | issue: slike se ne prikazuju dan ih -->
+            <!-- IN CONSTRUCTION | issue: slike se ne prikazuju dan ih | To ti je zato jer si mladi noob neiskusni <3 -->
           `
 })
 
