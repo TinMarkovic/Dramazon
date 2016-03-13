@@ -4,6 +4,11 @@ import {bootstrap} from "angular2/platform/browser";
 import {Http, HTTP_PROVIDERS} from 'angular2/http';
 import {ROUTER_PROVIDERS} from 'angular2/router';
 
+import {FormBuilder, Validators, ControlGroup} from 'angular2/common'
+
+
+
+
 @Component({
     selector: "login-component",
     providers: [],
@@ -34,7 +39,7 @@ import {ROUTER_PROVIDERS} from 'angular2/router';
                                 <label class="control-label" for="rememberme"></label>
                                 <div class="controls">
                                     <label class="checkbox-inline" for="rememberme-0">
-                                        <input type="checkbox" name="rememberme" id="rememberme-0" value="Remember me">
+                                        <input ngControl="rememberme" type="checkbox" name="rememberme" id="rememberme-0" value="false">
                                         Remember me
                                     </label>
                                 </div>
@@ -53,13 +58,21 @@ import {ROUTER_PROVIDERS} from 'angular2/router';
 })
 
 export class LoginComponent {
+    loginForm: ControlGroup;
 
+    constructor(fb: FormBuilder) {
+        this.loginForm = fb.group({
+            alias: ["", Validators.required],
+            password: ["", Validators.required],
+            rememberme: [""]
+        });
+    }
 
     private onRegButton() {
 
     }
-    private onLoginButton(event) {
-        alert("dan ga jebo");
+    onLoginButton(event) {
+        alert(JSON.stringify(this.loginForm.value));
     }
 
 
