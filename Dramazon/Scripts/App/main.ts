@@ -48,7 +48,7 @@ import {ROUTER_PROVIDERS} from 'angular2/router';
 
            
             <div class="container">
-               <!-- <img class="main-image" src="/Content/Image/image.jpg"> -->
+               <img class="main-image" src="/Content/Image/image.jpg">
              <!-- IN CONSTRUCTION | issue: slike se ne prikazuju dan ih  Ova slika je na hlađenju jer je naporna -->
 
                 <div class="col-lg-3 temp-css mainpage-boxpadd">

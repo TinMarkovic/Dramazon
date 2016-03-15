@@ -22,8 +22,7 @@ namespace Dramazon.Models
         [MaxLength(32)]
         [MinLength(4)]
         public string Address { get; set; }
-
-        [Required]
+        
         [MaxLength(64)]
         [MinLength(4)]
         public string Email { get; set; }

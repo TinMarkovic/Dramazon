@@ -99,3 +99,32 @@ body {
 .small-margin-top {
     margin-top:7px;
 }
+
+.main-image {
+    margin: 0px;
+    width: 100%;
+}
+.temp-css {
+    height: 450px;
+}
+.mainpage-box {
+    background: #f2f2f2;
+    height: 390px;
+    padding-top: 1px;
+}
+.centerBlock {
+    display: table;
+    margin: 40px auto 0 auto;
+            }
+.signin-button {
+    width: 90%;
+}
+.mainbox-header {
+    margin: 15px auto auto 15px;
+}
+.minibox-container {
+     text-align: center;
+}
+.mainpage-boxpadd {
+    padding: 10px;
+}

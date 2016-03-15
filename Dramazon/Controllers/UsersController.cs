@@ -17,10 +17,28 @@ namespace Dramazon.Controllers
     {
         private DramazonContext db = new DramazonContext();
 
-        // GET: api/Users
-        public IQueryable<User> GetUsers()
+        [HttpPost]
+        public string Login(string req)
         {
-            return db.Users;
+            var user = Newtonsoft.Json.JsonConvert.DeserializeObject<User>(req);
+
+            var cookie = CookieFactory.Create(user);
+
+            if (!ModelState.IsValid)
+            {
+                return "Error!";
+            }
+
+            db.Cookies.Add(cookie);
+            db.SaveChanges();
+
+            return cookie.Value;
+        }
+
+        // GET: api/Users
+        public string GetUsers()
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(db.Users);
         }
 
         // GET: api/Users/5

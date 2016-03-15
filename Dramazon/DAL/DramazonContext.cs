@@ -14,5 +14,6 @@ namespace Dramazon.DAL
         public DbSet<Item> Items { get; set; }
         public DbSet<Rating> Ratings { get; set; }
         public DbSet<Tag> Tags { get; set; }
+        public DbSet<Cookie> Cookies { get; set; }
     }
 }

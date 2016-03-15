@@ -11,8 +11,8 @@
     padding-top: 1px;
 }
 .centerBlock {
-                display: table;
-                margin: 40px auto 0 auto;
+    display: table;
+    margin: 40px auto 0 auto;
             }
 .signin-button {
     width: 90%;
