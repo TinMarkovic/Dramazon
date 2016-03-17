@@ -20,9 +20,9 @@ import {FormBuilder, Validators, ControlGroup} from 'angular2/common'
                             <!-- Sign In Form -->
                             <!-- Text input-->
                             <div class="control-group">
-                                <label class="control-label" for="userid">Alias:</label>
+                                <label class="control-label" for="alias">Alias:</label>
                                 <div class="controls">
-                                    <input ngControl="alias" required="" id="userid" name="userid" type="text" class="form-control" placeholder="JoeSixpack" class="input-medium" required="">
+                                    <input ngControl="alias" required="" id="alias" name="userid" type="text" class="form-control" placeholder="Someone" class="input-medium" required="">
                                 </div>
                             </div>
 
@@ -59,7 +59,7 @@ import {FormBuilder, Validators, ControlGroup} from 'angular2/common'
 
 export class LoginComponent {
     loginForm: ControlGroup;
-    
+
 
     constructor(public http: Http, fb: FormBuilder) {
         this.loginForm = fb.group({
