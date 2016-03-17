@@ -1,7 +1,7 @@
 ﻿import {Component} from "angular2/core";
 import {bootstrap} from "angular2/platform/browser";
 
-import {Http, HTTP_PROVIDERS} from 'angular2/http';
+import {Http, Headers, HTTP_PROVIDERS} from 'angular2/http';
 import {ROUTER_PROVIDERS} from 'angular2/router';
 
 import {FormBuilder, Validators, ControlGroup} from 'angular2/common'
@@ -59,20 +59,31 @@ import {FormBuilder, Validators, ControlGroup} from 'angular2/common'
 
 export class LoginComponent {
     loginForm: ControlGroup;
+    
 
-    constructor(fb: FormBuilder) {
+    constructor(public http: Http, fb: FormBuilder) {
         this.loginForm = fb.group({
             alias: ["", Validators.required],
             password: ["", Validators.required],
-            rememberme: [""]
+            rememberme: [false]
         });
     }
 
     private onRegButton() {
 
     }
-    onLoginButton(event) {
-        alert(JSON.stringify(this.loginForm.value));
+    private onLoginButton(event) {
+        console.log('Check1');
+        var objectToSend = JSON.stringify(this.loginForm.value);
+
+        var headers = new Headers();
+        headers.append('Content-Type', 'application/json');
+        this.http.post('http://localhost:64347/api/Login', objectToSend, { headers: headers })
+            .subscribe(res => {
+                console.log("W: " + res.json());
+            });
+
+        event.preventDefault();
     }
 
 
