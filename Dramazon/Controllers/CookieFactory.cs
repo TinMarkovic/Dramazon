@@ -18,8 +18,6 @@ namespace Dramazon.Controllers
 
             var result = new Cookie(value, DateTime.Now, DateTime.Now.AddHours(4), user);
             
-
-
             return result;
         }
 
