@@ -8,6 +8,10 @@ namespace Dramazon.Models
 {
     public class Cookie
     {
+        public Cookie()
+        {
+
+        }
         public Cookie(string value, DateTime created, DateTime ends, User user)
         {
             Value = value;
