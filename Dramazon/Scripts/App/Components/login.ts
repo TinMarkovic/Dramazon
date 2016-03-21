@@ -73,14 +73,17 @@ export class LoginComponent {
 
     }
     private onLoginButton(event) {
-        console.log('Check1');
         var objectToSend = JSON.stringify(this.loginForm.value);
 
         var headers = new Headers();
         headers.append('Content-Type', 'application/json');
         this.http.post('http://localhost:64347/api/Login', objectToSend, { headers: headers })
             .subscribe(res => {
-                console.log("W: " + res.json());
+                var data = JSON.parse(res.json());
+                console.log(data.token);
+                console.log(data.alias);
+                localStorage.setItem("dramazonToken", data.token);
+                localStorage.setItem("dramazonAlias", data.alias);
             });
 
         event.preventDefault();

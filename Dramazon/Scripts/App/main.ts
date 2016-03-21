@@ -53,7 +53,7 @@ import {ROUTER_PROVIDERS} from 'angular2/router';
 
                 <div class="col-lg-3 temp-css mainpage-boxpadd">
                     <div class="mainpage-box">
-                        <h3 class="centerBlock">Welcome</h3>
+                        <h3 class="centerBlock">Welcome, {{alias}}</h3>
                         <p class="centerBlock">sign in for the best experience</p>
                         <br><br><br><br><br>
                         <button type="button" class="btn btn-default centerBlock signin-button btn-warning">Sign in securely</button>
@@ -106,7 +106,18 @@ import {ROUTER_PROVIDERS} from 'angular2/router';
 })
 
 export class MainApp {
+    alias: string;
+    token: string;
 
+    constructor() {
+        if (localStorage.getItem("dramazonToken") != null) {
+            this.alias = localStorage.getItem("dramazonAlias");
+            this.token = localStorage.getItem("dramazonToken");
+        }
+        else {
+            this.alias = "Stranger";
+        }
+    }
 }
 
 bootstrap(MainApp, [ROUTER_PROVIDERS, HTTP_PROVIDERS]);
