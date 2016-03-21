@@ -80,10 +80,13 @@ export class LoginComponent {
         this.http.post('http://localhost:64347/api/Login', objectToSend, { headers: headers })
             .subscribe(res => {
                 var data = JSON.parse(res.json());
-                console.log(data.token);
-                console.log(data.alias);
-                localStorage.setItem("dramazonToken", data.token);
-                localStorage.setItem("dramazonAlias", data.alias);
+                console.log(data);
+                console.log("~~~~~~~~");
+                console.log(data.Value);
+                localStorage.setItem("dramazonToken", data.Value);
+                localStorage.setItem("dramazonAlias", data.User.Alias);
+
+                console.log("Local storage:", localStorage.getItem("dramazonToken"));
             });
 
         event.preventDefault();

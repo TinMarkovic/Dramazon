@@ -54,7 +54,7 @@ import {ROUTER_PROVIDERS} from 'angular2/router';
                 <div class="col-lg-3 temp-css mainpage-boxpadd">
                     <div class="mainpage-box">
                         <h3 class="centerBlock">Welcome, {{alias}}</h3>
-                        <p class="centerBlock">sign in for the best experience</p>
+                        <p class="centerBlock">sign in for the best experience, token: {{token}}</p>
                         <br><br><br><br><br>
                         <button type="button" class="btn btn-default centerBlock signin-button btn-warning">Sign in securely</button>
                 
