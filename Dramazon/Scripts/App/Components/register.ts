@@ -1,7 +1,7 @@
 ﻿import {Component} from "angular2/core";
 import {bootstrap} from "angular2/platform/browser";
 
-import {Http, HTTP_PROVIDERS} from 'angular2/http';
+import {Http, Headers, HTTP_PROVIDERS} from 'angular2/http';
 import {ROUTER_PROVIDERS} from 'angular2/router';
 
 import {FormBuilder, Validators, ControlGroup} from 'angular2/common'
@@ -79,7 +79,7 @@ import {FormBuilder, Validators, ControlGroup} from 'angular2/common'
 export class RegisterComponent {
     registerForm: ControlGroup;
 
-    constructor(fb: FormBuilder) {
+    constructor(public http: Http, fb: FormBuilder) {
         this.registerForm = fb.group({
             email: ["", Validators.required],
             alias: ["", Validators.required],
@@ -91,12 +91,20 @@ export class RegisterComponent {
 
 
     onRegButton(event) {
-        console.log("Prolazi");
-        //if (!(this.registerForm.value["password"] == this.registerForm.value.["reenterpassword"]))) {
-        //    alert("Your two passwords do not match...");
-        //}
+        if (!(this.registerForm.value["password"] == this.registerForm.value["reenterpassword"])) {
+            alert("Your two passwords do not match...");
+        }
+        var objectToSend = JSON.stringify(this.registerForm.value);
+        console.log(objectToSend);
 
-        alert(JSON.stringify(this.registerForm.value));
+        var headers = new Headers();
+        headers.append('Content-Type', 'application/json');
+        this.http.post('http://localhost:64347/api/Register', objectToSend, { headers: headers })
+            .subscribe(res => {
+                console.log(res);
+            });
+
+        alert(objectToSend);
     }
 
 
