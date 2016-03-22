@@ -33,7 +33,7 @@ import {ROUTER_PROVIDERS} from 'angular2/router';
                 <div class="col-lg-4">
                     <div class="col-lg-4 small-margin-top">
                         <!-- Login -->
-                        <user-dropdown></user-dropdown>
+                        <user-dropdown [token]="token" [alias]="alias"></user-dropdown>
                     </div>
 
                     <div class="col-lg-4 small-margin-top">
@@ -49,7 +49,6 @@ import {ROUTER_PROVIDERS} from 'angular2/router';
            
             <div class="container">
                <img class="main-image" src="/Content/Image/image.jpg">
-             <!-- IN CONSTRUCTION | issue: slike se ne prikazuju dan ih  Ova slika je na hlađenju jer je naporna -->
 
                 <div class="col-lg-3 temp-css mainpage-boxpadd">
                     <div class="mainpage-box">
@@ -101,7 +100,6 @@ import {ROUTER_PROVIDERS} from 'angular2/router';
                     </div>
                 </div>
             </div>
-            <!-- IN CONSTRUCTION | issue: slike se ne prikazuju dan ih | To ti je zato jer si mladi noob neiskusni <3 -->
           `
 })
 
