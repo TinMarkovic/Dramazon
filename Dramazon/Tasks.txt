@@ -1,0 +1,15 @@
+﻿Zadatak na doodleu:
+
+	amazon (http://www.amazon.com)
+		Model: Korisnik (ime, prezime, mail, adresa), Stavka (naziv, opis, slika, cijena, prosječna ocjena), Košarica (lista stavki nekog korisnika), Tag, Kupnja
+
+			Funkcionalnosti:
+			Registracija novih korisnika, svaki korisnik može uređivati svoje podatke	+
+			Dodavanje i editiranje stavki (svaki korisnik to može raditi), pri čemu se svaka stavka može označiti s više tagova.
+			Svaki korisnik može samo jednom dati ocjenu nekoj stavki. Na temelju ocjena svih korisnika, računa se prosječna ocjena neke stavke.
+			Moguće dodavati stavke u košaricu
+			Pregled trenutne košarice u ukupnog iznosa i obavljanje kupnje.
+			Pretraživanje stavki po nazivu, opisu, i tagu.
+			Pregled svih kupnji nekog korisnika
+
+
