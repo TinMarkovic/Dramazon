@@ -19,43 +19,61 @@ namespace Dramazon.Controllers
         public string password { get; set; }
     }
 
+    public class Response
+    {
+        public bool success { get; set; }
+        public string message { get; set; }
+
+        public Response(bool succ, string msg="")
+        {
+            this.success = succ;
+            this.message = msg;
+        }
+    }
+
     public class RegisterController : ApiController
     {
         private DramazonContext db = new DramazonContext();
 
         [HttpPost]
-        public string RegisterUser([FromBody] Reqreq recieved)
+        public string RegisterUser([FromBody] Reqreq received)
         {
-            if(recieved.password == "" || recieved.password == null || recieved.alias == "" || recieved.alias == null)
+            if(received.password == "" || received.password == null || received.alias == "" || received.alias == null || received.email == "" || received.email == null)
             {
-                return "The alias or password is invalid";
+                return Newtonsoft.Json.JsonConvert.SerializeObject(new Response(false, "Illegal fields"));
             }
-            
+
+            var result = new Response(true, "");
+
+            if (received.password.Length < 6)
+            {
+                result.success = false;
+                result.message += "Password is too short, it needs at least 6 signs. ";
+            }
+            if (received.alias.Length < 4)
+            {
+                result.success = false;
+                result.message += "Password is too short, it needs at least 4 signs. ";
+            }
+            if (received.email.Length < 3)
+            {
+                result.success = false;
+                result.message += "Not a valid email. ";
+            }
+
+            if (result.success == false)
+                return Newtonsoft.Json.JsonConvert.SerializeObject(result);
+
             User user = new User();
 
-            user.Password = recieved.password;
-            user.Alias = recieved.alias;
-
-            if (recieved.firstname != "" || recieved.firstname != null)
-            {
-                user.FirstName = recieved.firstname;
-            }
-            if (recieved.lastname != "" || recieved.lastname != null)
-            {
-                user.LastName = recieved.lastname;
-            }
-            if (recieved.address != "" || recieved.address != null)
-            {
-                user.Address = recieved.address;
-            }
-            if (recieved.email != "" || recieved.email != null)
-            {
-                user.Email = recieved.email;
-            }
+            user.Password = received.password;
+            user.Alias = received.alias;
+            user.Email = received.email;
 
             if (!ModelState.IsValid)
             {
-                return "Error!";
+                result.success = false;
+                result.message += "Model state invalid. ";
             }
             try
             {
@@ -64,10 +82,11 @@ namespace Dramazon.Controllers
             }
             catch (Exception e)
             {
-                return "Error, can't add user";
+                result.success = false;
+                result.message += "Database error: " + e.ToString() + " ";
             }
 
-            return "Success";
+            return Newtonsoft.Json.JsonConvert.SerializeObject(result);
         }
     }
 }

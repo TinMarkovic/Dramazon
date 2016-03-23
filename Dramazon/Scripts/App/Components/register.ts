@@ -101,10 +101,15 @@ export class RegisterComponent {
         headers.append('Content-Type', 'application/json');
         this.http.post('http://localhost:64347/api/Register', objectToSend, { headers: headers })
             .subscribe(res => {
-                console.log(res);
+                var response = JSON.parse(res.json());
+                if (response.success == false) {
+                    alert(response.message);
+                } else {
+                    //TODO login user in
+                    location.reload();
+                }
+                
             });
-
-        alert(objectToSend);
     }
 
 
