@@ -19,7 +19,7 @@ import {ROUTER_PROVIDERS} from 'angular2/router';
                       <div class="bs-example bs-example-tabs">
                         <ul id="myTab" class="nav nav-tabs">
                           <li class="active"><a href="#signin" data-toggle="tab">Sign In</a></li>
-                          <li class=""><a href="#signup" data-toggle="tab">Register</a></li>
+                          <li class=""><a href="#register" data-toggle="tab">Register</a></li>
                         </ul>
                       </div>
                       <div class="modal-body">
@@ -27,7 +27,7 @@ import {ROUTER_PROVIDERS} from 'angular2/router';
                             <div class="tab-pane fade active in" id="signin">
                                 <login-component></login-component>
                             </div>
-                            <div class="tab-pane fade" id="signup">
+                            <div class="tab-pane fade" id="register">
                                 <register-component></register-component>
                             </div>
                         </div>
@@ -44,14 +44,6 @@ import {ROUTER_PROVIDERS} from 'angular2/router';
 })
 
 export class SignUpComponent {
-
-
-    private onRegButton() {
-    
-    }
-    private onLoginButton(event) {
-        alert("dan ga jebo");
-    }
 
     
 }

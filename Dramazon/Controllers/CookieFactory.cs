@@ -28,6 +28,20 @@ namespace Dramazon.Controllers
 
             return result;
         }
+
+        public static Cookie GetFromDB(DramazonContext db, string token)
+        {
+            Cookie cookie;
+
+            try { 
+                cookie = db.Cookies.First(e => e.Value == token && DateTime.Compare(e.Ends, DateTime.Now) > 0 );
+            } catch (Exception e)
+            {
+                return null;
+            }
+            return cookie;
+        }
+
         public static string GetUniqueKey(int maxSize = 24)
         {
             char[] chars = new char[62];

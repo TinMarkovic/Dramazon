@@ -86,7 +86,7 @@ export class LoginComponent {
                 localStorage.setItem("dramazonToken", data.Value);
                 localStorage.setItem("dramazonAlias", data.User.Alias);
 
-                console.log("Local storage:", localStorage.getItem("dramazonToken"));
+                console.log("Local storage: " + localStorage.getItem("dramazonToken"));
                 location.reload();
             });
 

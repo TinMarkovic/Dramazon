@@ -50,20 +50,6 @@ import {FormBuilder, Validators, ControlGroup} from 'angular2/common'
                             </div>
                         </div>
 
-                        <!-- Multiple Radios (inline) -->
-                        <br>
-                        <div class="control-group">
-                            <label class="control-label" for="humancheck">Humanity Check:</label>
-                            <div class="controls">
-                                <label class="radio-inline" for="humancheck-0">
-                                    <input type="radio" ngControl="humancheck" name="humancheck" id="humancheck-0" value="robot" checked="checked">I'm a Robot
-                                </label>
-                                <label class="radio-inline" for="humancheck-1">
-                                    <input type="radio" ngControl="humancheck" name="humancheck" id="humancheck-1" value="human">I'm Human
-                                </label>
-                            </div>
-                        </div>
-
                         <!-- Button -->
                             <div class="control-group">
                                 <label class="control-label" for="register"></label>
@@ -84,8 +70,7 @@ export class RegisterComponent {
             email: ["", Validators.required],
             alias: ["", Validators.required],
             password: ["", Validators.required],
-            reenterpassword: ["", Validators.required],
-            humancheck: ["robot", Validators.required]
+            reenterpassword: ["", Validators.required]
         });
     }
 
@@ -93,6 +78,7 @@ export class RegisterComponent {
     onRegButton(event) {
         if (!(this.registerForm.value["password"] == this.registerForm.value["reenterpassword"])) {
             alert("Your two passwords do not match...");
+            return;
         }
         var objectToSend = JSON.stringify(this.registerForm.value);
         console.log(objectToSend);

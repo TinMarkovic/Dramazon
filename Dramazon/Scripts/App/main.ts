@@ -6,7 +6,7 @@ import {SearchBarComponent} from "./Components/searchBar";
 import {CartComponent} from "./Components/cart";
 import {UserDropdownComponent} from "./Components/userdropdown";
 
-import {Http, HTTP_PROVIDERS} from 'angular2/http';
+import {Http, Headers, HTTP_PROVIDERS} from 'angular2/http';
 import {ROUTER_PROVIDERS} from 'angular2/router';
 
 @Component({
@@ -107,10 +107,34 @@ export class MainApp {
     alias: string;
     token: string;
 
-    constructor() {
+    constructor(public http: Http) {
         if (localStorage.getItem("dramazonToken") != null) {
-            this.alias = localStorage.getItem("dramazonAlias");
-            this.token = localStorage.getItem("dramazonToken");
+
+
+            var objectToSend = localStorage.getItem("dramazonToken");
+            console.log("Token is: ", objectToSend);
+
+            var headers = new Headers();
+            headers.append('Content-Type', 'application/json');
+            
+
+            this.http.get('http://localhost:64347/api/Login?token='+objectToSend, { headers: headers })
+                .subscribe(res => {
+                    var response = JSON.parse(res.json());
+                    if (response.success == false) {
+                        localStorage.clear();
+                        console.log(response.message + " ~ Cleaning storage...");
+                    } else {
+                        this.token = localStorage.getItem("dramazonToken");
+                        this.token = localStorage.getItem("dramazonAlias");
+                        console.log("Success: " + response.message);
+                    }
+
+                });
+
+
+
+
         }
         else {
             this.alias = "Stranger";

@@ -17,6 +17,7 @@ namespace Dramazon.Controllers
         public string password { get; set; }
         public bool rememberme { get; set; }
     }
+    
 
     public class LoginController : ApiController
     {
@@ -25,33 +26,25 @@ namespace Dramazon.Controllers
 
         private User AuthUser(string alias, string password)
         {
-            if (alias != null && 
-                password != null)
+            if (alias == null && password == null) return null;
+            try
             {
-                try {
                 return db.Users.First(e => e.Alias == alias && e.Password == password);
-                } catch(Exception e)
-                {
-                    return null;
-                }
             }
-            else return null;
+            catch (Exception e)
+            {
+                return null;
+            }
         }
 
         [HttpPost]
         public string Login([FromBody] LoginReq recieved)
         {
-            var userLogin = AuthUser(recieved.alias, recieved.password);
+            User userLogin = AuthUser(recieved.alias, recieved.password);
 
-            if (userLogin == null)
-            {
-                return "Invalid login.";
-            }
+            if (userLogin == null) return "Invalid login.";
 
-            if (!ModelState.IsValid)
-            {
-                return "Error!";
-            }
+            if (!ModelState.IsValid) return "Error!";
             
             if (!recieved.rememberme)
             {
@@ -67,5 +60,24 @@ namespace Dramazon.Controllers
 
             return Newtonsoft.Json.JsonConvert.SerializeObject(cookie);
         }
+
+        [HttpGet]
+        public string UserByToken(string token)
+        {
+            if(token.Length != 24)
+            {
+                return Newtonsoft.Json.JsonConvert.SerializeObject(new Response(false, "Token is invalid"));
+            }
+
+            var cookie = CookieFactory.GetFromDB(db, token);
+            if (cookie == null)
+                return Newtonsoft.Json.JsonConvert.SerializeObject(new Response(false, "Token is invalid"));
+
+            string user = Newtonsoft.Json.JsonConvert.SerializeObject(cookie);
+            
+            return Newtonsoft.Json.JsonConvert.SerializeObject(new Response(true, user));
+
+        }
+
     }
 }
